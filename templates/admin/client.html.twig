@@ -1,0 +1,19 @@
+{% extends 'admin.html.twig' %}
+
+{% block stylesheets %}
+    {{parent()}}
+{% endblock %}
+
+{% block body %}
+
+    {% for client in clients %}
+	<h4>client ept - {{client.fname}}</h4>
+    {%  endfor %}
+    
+    {{parent()}}
+    
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+{% endblock %}

@@ -1,0 +1,272 @@
+:root {
+    --background-color: #333;
+    --window-bg-color: #fff;
+    --primary-color: #0096c4;
+    --primary-color-rgb: 0, 150, 196;
+    --delete-color: #a00;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+.container {
+    width: 100%;
+	border-top: 1px solid #d2d6de;
+    height: auto;
+    display: flex;
+}
+
+.container .params {
+    width: 30%;
+    border-right: 1px solid #d2d6de;
+    overflow: auto;
+    padding: 10px;
+}
+
+.params ul.tree {
+    padding-left: 20px;
+}
+
+.params .tree ul {
+    margin-left: 20px;
+}
+
+.params .tree li {
+    list-style-type: none;
+    margin: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.params .tree li::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: -20px;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0 0 0 0;
+    width: 19px;
+    height: 15px;
+}
+
+.params .tree li::after {
+    position: absolute;
+    content: "";
+    top: 8px;
+    left: -20px;
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-radius: 0 0 0 0;
+    width: 19px;
+    height: 100%;
+}
+
+.params .tree li:last-child::after {
+    display: none;
+}
+
+.params .tree li:last-child:before {
+    border-radius: 0 0 0 1px;
+}
+
+.params ul.tree > li:first-child::before {
+    display: none;
+}
+
+.params ul.tree > li:first-child::after {
+    border-radius: 1px 0 0 0;
+}
+
+.params .tree li .item {
+    border: 1px #ccc solid;
+    border-radius: 5px;
+    padding: 2px 5px;
+    padding-left: 30px;
+    display: inline;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.params .tree li .item:hover,
+.params .tree li .item:hover + ul li .item,
+.params .tree li .item:focus,
+.params .tree li .item:focus + ul li .item {
+    /* background: #ccc; */
+    color: #000;
+    border: 1px solid var(--primary-color);
+}
+
+.params .tree li .item:hover + ul li::after,
+.params .tree li .item:focus + ul li::after,
+.params .tree li .item:hover + ul li::before,
+.params .tree li .item:focus + ul li::before .tree li .item:hover + ul::before,
+.params .tree li .item:focus + ul::before .tree li .item:hover + ul ul::before,
+.params .tree li .item:focus + ul ul::before {
+    border-color: var(--primary-color);
+}
+
+.params .tree li .item.selected {
+    border: 1px solid var(--primary-color);
+    background-color: rgba(var(--primary-color-rgb), .2);
+}
+
+.params .tree li .item.add-btn {
+    border: none;
+    padding: 0 2px;
+}
+
+.item.add-btn .button.add-button {
+    display: inline;
+    padding: 2px 10px;
+    border-radius: 1px;
+}
+
+.item.array {
+    background: url(/img/icons/array.svg);
+    background-size: 19px 19px;
+    background-repeat: no-repeat;
+    background-position: left 5px top 2px;
+}
+
+.item.object {
+    background: url(/img/icons/object.svg);
+    background-size: 19px 19px;
+    background-repeat: no-repeat;
+    background-position: left 5px top 2px;
+}
+
+.item.number {
+    background: url(/img/icons/number.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left 5px top 0;
+}
+
+.item.string {
+    background: url(/img/icons/text.svg);
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: left 5px top 3px;
+}
+
+.item.date {
+    background: url(/img/icons/date.svg);
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: left 5px top 2px;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 50px;
+    /*gap: 20px;*/
+    background: rgba(0,0,0, .02);
+}
+
+.settings_container {
+  /*  flex: 1;*/
+    display: flex;
+    flex-direction: column;
+    /*gap: 20px;*/
+}
+
+.settings .setting_title {
+    /* font-size: 1.3rem; */
+    margin-bottom: 5px;
+}
+/*
+.settings .setting_field input[type=text], .settings .setting_field select {
+    width: 100%;
+
+    outline: none;
+    padding: 5px;
+    border: 1px solid var(--primary-color);
+    border-radius: 1px;
+}
+*/
+.settings_buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+}
+/*
+.button {
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    transition: opacity .15s ease-in-out;
+}
+
+.button:hover {
+    opacity: .8;
+}
+
+.button.bg-button {
+
+    padding: 6px 8px;
+    border-radius: 1px;
+}
+
+.button.blue-btn {
+    background: var(--primary-color);
+}
+
+.button.red-btn {
+    background-color: #cb6969;
+}
+*/
+.message-box {
+    background: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+    border-radius: 5px;
+    border: 1px solid rgba(var(--primary-color-rgb), .5);
+    transition: opacity .5s ease-in-out;
+}
+
+.message-box.hide {
+    opacity: 0;
+}
+
+.close_list {
+    position: absolute; /* Абсолютное позиционирование */
+    border: var(--triangle-size) solid transparent; /* Прозрачные границы */
+    z-index: 2;
+    --triangle-size: 8px;
+    --triangle-color: var(--primary-color);
+}
+
+.close_list.closed {
+    left: -20px; top: 1px; /* Положение треугольника */
+    border-left: var(--triangle-size) solid var(--triangle-color); /* треугольник */
+}
+
+.close_list.opened {
+    left: -28px; top: 8px; /* Положение треугольника */
+    border-top: var(--triangle-size) solid var(--triangle-color); /* треугольник */
+}
+
+.config {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    align-items: center;
+    height: 50px;
+}
+
+.config-buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 20px;
+}

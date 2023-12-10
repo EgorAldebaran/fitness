@@ -1,0 +1,14 @@
+{% extends 'admin.html.twig' %}
+
+{% block stylesheets %}
+    {{parent()}}
+{% endblock %}
+
+{% block javascripts %}
+  {{parent()}}
+    {% endblock %}
+
+    {% block body %}
+      {{parent()}}
+    <h4>from admin</h4>
+{% endblock %}
