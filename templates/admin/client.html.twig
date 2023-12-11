@@ -4,7 +4,21 @@
     {{parent()}}
 {% endblock %}
 
+{% block javascripts %}
+    {{parent()}}
+    <script>
+    $(document).ready(function () {
+       $('#summernote').summernote()
+    })     
+    </script>
+
+{% endblock %}
+
 {% block body %}
+
+    <div id="summernote"><p>
+	something else for redacting
+    </p></div>
 
     {% for client in clients %}
 	<h4>client ept - {{client.fname}}</h4>
@@ -14,6 +28,4 @@
     
 {% endblock %}
 
-{% block javascripts %}
-    {{parent()}}
-{% endblock %}
+

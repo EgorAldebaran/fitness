@@ -18,7 +18,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/client', name: 'admin_client')]
+    #[Route('/admin/client/', name: 'admin_client')]
     public function client(EntityManagerInterface $entityManager): Response
     {
         $clients = $entityManager->getRepository(Guest::class)->findAll();
